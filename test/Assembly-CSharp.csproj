@@ -51,12 +51,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\ClearablePiece.cs" />
      <Compile Include="Assets\Scripts\ColorPiece.cs" />
      <Compile Include="Assets\Scripts\GamePiece.cs" />
      <Compile Include="Assets\Scripts\Grid.cs" />
      <Compile Include="Assets\Scripts\MovablePiece.cs" />
  <Reference Include="Facebook.Unity.Settings">
- <HintPath>D:/test/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+ <HintPath>C:/Users/User/Desktop/test/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

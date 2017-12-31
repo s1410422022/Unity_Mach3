@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//上次做到顏色4分鐘
+
 public class ColorPiece : MonoBehaviour {
 	public enum ColorType
 	{
@@ -34,6 +34,12 @@ public class ColorPiece : MonoBehaviour {
 		set{ SetColor (value);}
 	}
 	//..............................................
+	public int NumColors
+	{
+		get { return colorSprites.Length;}
+	}
+	//..............................................
+
 	private SpriteRenderer sprite;
 	//..............................................
 	private Dictionary<ColorType,Sprite> colorSpriteDict;
@@ -52,17 +58,15 @@ public class ColorPiece : MonoBehaviour {
 		}
 	}
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-	public void SetColor(ColorType newColor){
+	void Start(){
+	} 
+
+	void Update () {
+	} 
+
+
+	public void SetColor(ColorType newColor){	
 		color = newColor;
 
 		if (colorSpriteDict.ContainsKey (newColor)) {

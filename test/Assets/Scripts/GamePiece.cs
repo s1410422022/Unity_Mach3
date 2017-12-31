@@ -28,6 +28,7 @@ public class GamePiece : MonoBehaviour {
         }
     }
 
+	//.......................網格腳本
     private Grid.PieceType type;
     public Grid.PieceType Type
     {
@@ -41,26 +42,40 @@ public class GamePiece : MonoBehaviour {
         get { return grid; }
     }
 
+	//.......................移動元件腳本
     private MovablePiece movableComponent;
 
     public MovablePiece MovableComponent {
         get { return movableComponent;}
     }
+	//.......................顏色元件腳本
+	private ColorPiece colorComponent;
+
+	public ColorPiece ColorComponent 
+	{
+		get { return colorComponent;}
+	}
+	//.......................清除元件腳本
+	private ClearablePiece clearableComponent;
+	public ClearablePiece ClearableComponent{
+		get{ return clearableComponent;}
+	}
 
 
     void Awake() {
         movableComponent = GetComponent<MovablePiece>();
+		colorComponent = GetComponent<ColorPiece>();
+		clearableComponent=GetComponent<ClearablePiece>();
     }
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
+ 
+
+	void Start(){ 
+	} 
+
 	void Update () {
 		
-	}
-
+	} 
+	//.......................初始
     public void Init(int _x, int _y,Grid _grid,Grid.PieceType _type) {
         x = _x;
         y = _y;
@@ -68,7 +83,34 @@ public class GamePiece : MonoBehaviour {
         type = _type;
     }
 
+	//.......................滑鼠
+	void OnMouseEnter()
+	{
+		grid.EnterPiece (this);
+	}
+	void OnMouseDown()
+	{
+		grid.PressPiece (this);
+
+	}
+	void OnMouseUp()
+	{
+		grid.ReleasePiece ();
+
+	}
+
+	//.......................判斷是否移動,顏色是否為空,是否清除
     public bool IsMovable() {
         return movableComponent != null;
     }
+		
+	public bool IsColored()
+	{
+		return colorComponent != null;
+	}
+
+	public bool IsClearable()
+	{
+		return clearableComponent != null;
+	}
 }
